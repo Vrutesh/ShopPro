@@ -87,26 +87,47 @@ function displayProduct(product) {
   });
 }
 
-
 // addtowishlist --------------------------
 
-function addtowishlist(){
-    let wishlistbtn = document.createElement("p");
-    wishlistbtn.classList.add("wishlistbtn");
-    wishlistbtn.innerHTML = `<i class="fa-solid fa-heart heartbtn" style="font-size:25px;"></i>`;
+function addtowishlist() {
+  let wishlistbtn = document.createElement("p");
+  wishlistbtn.classList.add("wishlistbtn");
+  wishlistbtn.innerHTML = `<i class="fa-solid fa-heart heartbtn" style="font-size:25px;"></i>`;
 
-    let addedfav = false;
-    wishlistbtn.addEventListener("click", () => {
-      if (addedfav) {
-        wishlistbtn.style.color = "red";
-        addedfav = false;
-      } else {
-        wishlistbtn.style.color = "";
-        addedfav = true;
-      }
+  let addedfav = false;
+  wishlistbtn.addEventListener("click", () => {
+    if (addedfav) {
+      wishlistbtn.querySelector(".heartbtn").style.color = "";
+      addedfav = false;
+    } else {
+      wishlistbtn.querySelector(".heartbtn").style.color = "red";
+      addedfav = true;
+    }
+  });
 
-      console.log("click");
-    });
-
-    return wishlistbtn
+  return wishlistbtn;
 }
+
+// function toggleDark(){
+//   let body = document.getElementsByTagName('body')[0]
+//   let darktheme = document.querySelector('.dark-theme')
+//   let navbar = document.querySelector('.navbar')
+
+//   let darkmode = false;
+//   darktheme.addEventListener('click',()=>{
+//     if(darkmode){
+//       console.log('click')
+//       body.style.backgroundColor ='black'
+//       body.style.color ='white'
+//       navbar.style.backgroundColor = 'white'
+//       darkmode = false;
+//     }
+//     else{
+//       body.style.backgroundColor ='black'
+//       body.style.color ='white'
+//       darkmode = true
+//     }
+//   })
+// }
+
+// toggleDark()
