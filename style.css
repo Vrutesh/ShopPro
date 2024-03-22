@@ -27,6 +27,11 @@
   background-color: #999;
 }
 
+.mar {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .navbar {
   padding: 15px 0;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -62,6 +67,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  cursor: pointer;
 }
 
 .search-bar {
@@ -90,6 +96,7 @@
 
 .profile-cart {
   display: flex;
+  align-items: center;
 }
 
 .profile-cart a {
@@ -97,6 +104,13 @@
   border-radius: 50%;
   text-decoration: none;
   margin-left: 15px;
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  font-family: "Tektur", sans-serif;
+  color: var(--primary-color);
+
+
 }
 
 .profile-cart a i {
@@ -111,8 +125,6 @@
 
 /* hero section */
 #hero-section {
-  width: 100%;
-  max-width: 1200px;
   margin: 100px auto;
   display: flex;
   justify-content: center;
@@ -144,6 +156,7 @@
   font-family: "Tektur", sans-serif;
   font-size: 1.1rem;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .shopnow-btn:hover {
@@ -158,22 +171,20 @@
 }
 
 #product-container {
-  margin: 40px 50px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
   gap: 30px;
 }
 
 .card {
   border-radius: 20px;
-  padding: 0 15px 15px 15px;
-  overflow: hidden;
-  width: 280px;
-  height: 450px;
+  padding: 15px 15px 15px 15px;
+  width: 300px;
+  height: 520px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-evenly;
   gap: 10px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   transition: 0.3s ease;
@@ -186,17 +197,31 @@
 
 .card img {
   width: 100%;
-  height: 60%;
+  height: 55%;
   margin: 0 0 20px 0;
   border-radius: 5px;
   mix-blend-mode: multiply;
+  cursor: pointer;
+}
+
+.product-category {
+  width: 80px;
+  text-align: center;
+  padding: 3px 0;
+  border-radius: 10px;
+  background-color: var(--secondary-color);
+  font-size: 0.73rem;
+  border: 2px solid var(--primary-color);
+  font-family: "Tektur", sans-serif;
+  font-weight: 550;
 }
 
 .product-details {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 8px;
 }
+
 .product-title {
   font-size: 0.9rem;
   font-weight: 500;
@@ -218,7 +243,7 @@
   font-weight: 500;
   font-family: "Tektur", sans-serif;
   display: flex;
-  justify-content: space-between;
+  gap: 10px;
 }
 
 .cart-btn-container {
@@ -243,6 +268,7 @@
   -webkit-transition: all 0.2s ease-in;
   -moz-transition: all 0.2s ease-in;
   transition: 0.4s;
+  cursor: pointer;
 }
 
 .add-to-cart-btn:hover {
@@ -303,6 +329,7 @@
 
 .wishlistbtn {
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .wishlistbtn:active {
@@ -322,6 +349,7 @@ footer {
 .footer-logo h1 {
   font-family: "Tektur", sans-serif;
   font-size: 3rem;
+  cursor: pointer;
 }
 
 .footer-logo p {
@@ -338,6 +366,7 @@ footer {
 
 .footer-menu ul li {
   margin-top: 15px;
+  cursor: pointer;
 }
 
 .footer-menu ul h4 {
@@ -357,6 +386,7 @@ footer {
   background: rgba(117, 117, 117, 0.099);
   border-radius: 50%;
   transition: 0.5s;
+  cursor: pointer;
 }
 
 .social-icons img:hover {
