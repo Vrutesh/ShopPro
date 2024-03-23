@@ -18,7 +18,7 @@ fetch("https://fakestoreapi.com/products")
 // display products------------------------
 
 function displayProduct(product) {
-  if(!product){
+  if (!product) {
     return false;
   }
   let product_container = document.getElementById("product-container");
@@ -28,9 +28,9 @@ function displayProduct(product) {
     let card = document.createElement("div");
     card.classList.add("card");
 
-    let prod_category = document.createElement('span')
-    prod_category.classList.add('product-category')
-    prod_category.innerHTML = product.category
+    let prod_category = document.createElement("span");
+    prod_category.classList.add("product-category");
+    prod_category.innerHTML = product.category;
 
     let product_img = document.createElement("img");
     product_img.classList.add("product-img");
@@ -70,13 +70,13 @@ function displayProduct(product) {
     product_price.classList.add("product-price");
     product_price.innerHTML = `Price : $${product.price}/-`;
 
-    let exp_price = document.createElement('h3')
-    exp_price.innerHTML = `$${product.price * 4}`
-    exp_price.style.textDecoration ='line-through'
-    exp_price.style.color ='gray'
-    exp_price.style.fontSize ='0.9rem'
+    let exp_price = document.createElement("h3");
+    exp_price.innerHTML = `$${product.price * 4}`;
+    exp_price.style.textDecoration = "line-through";
+    exp_price.style.color = "gray";
+    exp_price.style.fontSize = "0.9rem";
 
-    product_price.appendChild(exp_price)
+    product_price.appendChild(exp_price);
 
     let cart_btn = document.createElement("div");
     cart_btn.classList.add("cart-btn-container");
@@ -88,7 +88,7 @@ function displayProduct(product) {
     addtocart.textContent = "Add to Cart";
 
     cart_btn.appendChild(addtocart);
-    cart_btn.appendChild(addtowishlist());
+    cart_btn.appendChild(addtowishlist(product, product.id));
 
     product_details.appendChild(product_title);
     product_details.appendChild(product_rating);
@@ -100,7 +100,7 @@ function displayProduct(product) {
     card.appendChild(product_details);
 
     product_container.appendChild(card);
-    
+
     // Call addtoCart function after creating each product element
     addtoCart(addtocart, product.id, product);
   });
@@ -108,70 +108,101 @@ function displayProduct(product) {
 
 // addtowishlist --------------------------
 
-function addtowishlist() {
+function addtowishlist(product, id) {
   let wishlistbtn = document.createElement("p");
   wishlistbtn.classList.add("wishlistbtn");
   wishlistbtn.innerHTML = `<i class="fa-solid fa-heart heartbtn" style="font-size:25px;"></i>`;
 
-  let addedfav = false;
-  let itemCount = 0
-  let addwishlist = document.querySelector('.addwishlist')
+  let addedfav = localStorage.getItem("cart_" + id); // Check if item already in wishlist
+
+  if (addedfav) {
+    wishlistbtn.querySelector(".heartbtn").style.color = "red"; // Set color to red if already in wishlist
+  }
+
   wishlistbtn.addEventListener("click", () => {
     if (addedfav) {
       wishlistbtn.querySelector(".heartbtn").style.color = "";
+      localStorage.removeItem("cart_" + id);
       addedfav = false;
-      itemCount--;
-      addwishlist.innerHTML = `<i class="fa-solid fa-heart"></i> ${itemCount}`
+      updateWishlistCount(
+        showToast(
+          '<i class="fa-solid fa-heart" style="color:red;"></i>',
+          "Product is removed from My Wishlist"
+        )
+      );
     } else {
       wishlistbtn.querySelector(".heartbtn").style.color = "red";
+      localStorage.setItem("cart_" + id, JSON.stringify(product));
       addedfav = true;
-      itemCount++;
-      addwishlist.innerHTML = `<i class="fa-solid fa-heart"></i> ${itemCount}`
+      updateWishlistCount(
+        showToast(
+          '<i class="fa-solid fa-heart" style="color:red;"></i>',
+          "Product is added to My Wishlist"
+        )
+      );
     }
-    
   });
+
   return wishlistbtn;
 }
 
-// Add to cart function
-function addtoCart(addtocart_btn, id, product) {
-  addtocart_btn.addEventListener('click', () => {
-    console.log("Clicked on product with id:", id); 
-    let product_price = product.price
-    console.log(product_price)
-    localStorage.setItem('product_' + id, JSON.stringify(product));
-    updateCart()
-  });
-}
-
-function updateCart(id) {
-  let cart = document.querySelector('.cart');
-  let itemCount = 0;
-  let productAlreadyAdded = false; // Flag to track if product is already added
+function updateWishlistCount() {
+  let itemCount = "";
+  let addwishlist = document.querySelector(".addwishlist");
 
   for (let i = 0; i < localStorage.length; i++) {
     let key = localStorage.key(i);
-    if (key.startsWith('product_')) {
+    if (key.startsWith("cart_")) {
       itemCount++;
-      console.log("Product added");
-      productAlreadyAdded = false;
-    }
-    if (key === 'product_' + id) {
-      console.log('Product is already in the cart');
-      productAlreadyAdded = true; // Set flag to true if product is found
     }
   }
+  addwishlist.innerHTML = `<i class="fa-solid fa-heart"></i> ${itemCount}`;
+}
 
-  // if (!productAlreadyAdded) { // If product is not already added, update cart
-  //   console.log("Product added");
-  // }
+updateWishlistCount();
 
-  cart.innerHTML = `<img src="assets/icons/cart.svg" alt="cart"> ${itemCount}`;
-
-  // Optionally, you may attach event listener outside this function
-  cart.addEventListener('click', () => {
-    window.location.href = 'cart.html';
+// Add to cart function
+function addtoCart(addtocart_btn, id, product) {
+  let isProduct = false;
+  addtocart_btn.addEventListener("click", () => {
+    localStorage.setItem("product_" + id, JSON.stringify(product));
+    updateCart(
+      showToast(
+        '<i class="fa-regular fa-circle-check" style="color:springgreen;"></i>',
+        "Product have been added"
+      )
+    );
   });
 }
 
+function updateCart() {
+  let cart = document.querySelector(".cart");
+  let itemCount = "";
 
+  for (let i = 0; i < localStorage.length; i++) {
+    let key = localStorage.key(i);
+    if (key.startsWith("product_")) {
+      itemCount++;
+    }
+  }
+
+  cart.innerHTML = `<img src="assets/icons/cart.svg" alt="cart"> ${itemCount}`;
+  cart.addEventListener("click", () => {
+    window.location.href = "cart.html";
+  });
+}
+updateCart();
+
+function showToast(msgicon, message) {
+  let toastcontainer = document.querySelector(".toast");
+  let toastmsg = document.querySelector(".toastmsg");
+
+  setTimeout(() => {
+    toastcontainer.style.display = "block";
+    toastmsg.innerHTML = `${msgicon} ${message}`;
+    setTimeout(() => {
+      toastcontainer.style.display = "";
+      toastmsg.innerHTML = "";
+    }, 2000);
+  }, 1000);
+}
