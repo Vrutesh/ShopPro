@@ -71,7 +71,8 @@ function displayProduct(product) {
     product_price.innerHTML = `Price : $${product.price}/-`;
 
     let exp_price = document.createElement("h3");
-    exp_price.innerHTML = `$${product.price * 4}`;
+    let formattedPrice = (product.price * 2.3).toFixed(1);
+    exp_price.innerHTML = `$${formattedPrice}`;
     exp_price.style.textDecoration = "line-through";
     exp_price.style.color = "gray";
     exp_price.style.fontSize = "0.9rem";
@@ -164,7 +165,7 @@ updateWishlistCount();
 // Add to cart function
 function addtoCart(addtocart_btn, id, product) {
   addtocart_btn.addEventListener("click", () => {
-    let localStorageId = localStorage.getItem('product_' + id);
+    let localStorageId = localStorage.getItem("product_" + id);
     // Check if the product is already in the cart
     if (localStorageId) {
       updateCart(
@@ -174,7 +175,7 @@ function addtoCart(addtocart_btn, id, product) {
         )
       );
       return; // Exit the function, no need to proceed further
-    } 
+    }
     // If not in the cart, add the product to the cart
     localStorage.setItem("product_" + id, JSON.stringify(product));
     updateCart(

@@ -155,6 +155,7 @@
   display: flex;
   justify-content: space-between;
   gap: 10px;
+  margin-bottom: 40px;
 }
 
 .product-container {
@@ -169,16 +170,24 @@
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
+.product-img {
+  height: 230px;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .product-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 80%;
+  height: 80%;
 }
 
 .product-info {
+  width: 70%;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
   padding: 20px;
 }
 
@@ -194,12 +203,26 @@
   font-family: "Tektur", sans-serif;
 }
 
+.exp_price {
+  margin-left: 10px;
+  font-family: "Tektur", sans-serif;
+  color: gray;
+  font-size: 0.9rem;
+  text-decoration: line-through;
+}
+
 .remove-item-btn {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
   padding: 10px 10px;
   font-family: "Tektur", sans-serif;
 }
 
 .summary-container {
+  height: max-content;
+  border-radius: 20px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   display: flex;
   flex-direction: column;
@@ -207,9 +230,14 @@
   padding: 20px;
 }
 
+.price-heading {
+  font-size: 1.4rem;
+}
+
 .promo-code-search {
   width: 170px;
   padding: 7px 5px 5px 15px;
+  margin-right: 10px;
   border-radius: 15px;
   border: 2px solid gray;
 }
@@ -226,4 +254,70 @@
 .checkout-btn {
   width: 200px;
   padding: 10px 20px;
+}
+
+/* Go to top Button  */
+
+.gototop-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px 50px 20px;
+}
+
+.gototop-btn a {
+  position: relative;
+  display: inline-block;
+  padding: 15px 30px;
+  border: 2px solid #212121;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  scroll-behavior: smooth;
+}
+
+.gototop-btn a::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% - 12px);
+  background-color: var(--secondary-color);
+  transition: 0.3s ease-in-out;
+  transform: scaleY(1);
+}
+
+.gototop-btn a:hover::before {
+  transform: scaleY(0);
+}
+
+.gototop-btn a::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: -2px;
+  height: calc(100% + 4px);
+  width: calc(100% - 12px);
+  background-color: var(--secondary-color);
+  transition: 0.3s ease-in-out;
+  transform: scaleX(1);
+  transition-delay: 0.5s;
+}
+
+.gototop-btn a:hover::after {
+  transform: scaleX(0);
+}
+
+.gototop-btn a span {
+  position: relative;
+  z-index: 3;
+}
+
+.gototop-btn button {
+  background-color: none;
+  text-decoration: none;
+  background-color: var(--secondary-color);
+  border: none;
 }
