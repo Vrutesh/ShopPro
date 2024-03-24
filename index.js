@@ -163,13 +163,24 @@ updateWishlistCount();
 
 // Add to cart function
 function addtoCart(addtocart_btn, id, product) {
-  let isProduct = false;
   addtocart_btn.addEventListener("click", () => {
+    let localStorageId = localStorage.getItem('product_' + id);
+    // Check if the product is already in the cart
+    if (localStorageId) {
+      updateCart(
+        showToast(
+          '<i class="fa-regular fa-circle-check" style="color:springgreen;"></i>',
+          "Product is already in the cart"
+        )
+      );
+      return; // Exit the function, no need to proceed further
+    } 
+    // If not in the cart, add the product to the cart
     localStorage.setItem("product_" + id, JSON.stringify(product));
     updateCart(
       showToast(
         '<i class="fa-regular fa-circle-check" style="color:springgreen;"></i>',
-        "Product have been added"
+        "Product has been added to the cart"
       )
     );
   });
@@ -178,14 +189,12 @@ function addtoCart(addtocart_btn, id, product) {
 function updateCart() {
   let cart = document.querySelector(".cart");
   let itemCount = "";
-
   for (let i = 0; i < localStorage.length; i++) {
     let key = localStorage.key(i);
     if (key.startsWith("product_")) {
       itemCount++;
     }
   }
-
   cart.innerHTML = `<img src="assets/icons/cart.svg" alt="cart"> ${itemCount}`;
   cart.addEventListener("click", () => {
     window.location.href = "cart.html";

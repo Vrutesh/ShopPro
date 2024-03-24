@@ -27,9 +27,17 @@
   background-color: #999;
 }
 
+/* utility classes */
+
 .mar {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.justify-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navbar {
