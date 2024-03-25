@@ -348,3 +348,71 @@
   background-color: var(--secondary-color);
   border: none;
 }
+
+/* footer  */
+footer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 40px 50px;
+  background-color: #ededed;
+}
+
+.footer-logo h1 {
+  font-family: "Tektur", sans-serif;
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.footer-logo p {
+  width: 300px;
+  line-height: 1.4rem;
+  font-size: 0.9rem;
+  text-align: justify;
+}
+
+.footer-menu ul {
+  text-decoration: none;
+  list-style: none;
+}
+
+.footer-menu ul li {
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.footer-menu ul h4 {
+  font-size: 1.3rem;
+}
+
+.line {
+  height: 1px;
+  width: 100%;
+  background-color: gray;
+  margin: 30px 0;
+}
+
+.social-icons img {
+  padding: 10px;
+  margin: 15px 10px 0 0;
+  background: rgba(117, 117, 117, 0.099);
+  border-radius: 50%;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.social-icons img:hover {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.payment-methods {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.payment-methods img {
+  width: 60px;
+}

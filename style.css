@@ -492,3 +492,110 @@ footer {
   display: flex;
   gap: 10px;
 }
+
+/* media query for max-width 480px  */
+@media only screen and (max-width: 480px) {
+  .mar {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .container {
+    padding: 0 10px;
+  }
+  .navbar {
+    width: 100%;
+  }
+
+  .logo {
+    font-size: 2rem;
+  }
+  .nav-menu {
+    display: none;
+  }
+  .search-bar {
+    display: none;
+  }
+
+  .profile-cart a {
+    gap: 5px;
+    margin-left: 0;
+  }
+
+  #hero-section {
+    margin: 45px 0;
+    flex-direction: column;
+    gap: 70px;
+    align-items: center;
+  }
+
+  .left-hero-section {
+    width: 100%;
+    align-items: center;
+  }
+  .left-hero-section h1 {
+    text-align: center;
+    /* font-size: 3.5rem; */
+  }
+
+  .left-hero-section p {
+    margin: 10px 0;
+    padding: 0 15px;
+    text-align: center;
+  }
+
+  .right-hero-section {
+    width: 100%;
+    height: 55vh;
+    display: flex;
+    justify-content: center;
+  }
+
+  #product-container {
+    display: flex;
+    overflow: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 24px;
+    gap: 32px;
+    padding: 30px 40px;
+  }
+
+  #product-container::-webkit-scrollbar {
+    display: none;
+  }
+  #product-container .card {
+    flex: 0 0 90%;
+    scroll-snap-align: start;
+    padding: 10px 10px;
+  }
+
+  .card img {
+    width: 70%;
+    height: 40%;
+    margin: 0 auto;
+  }
+
+  .product-category {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  footer {
+    gap: 30px;
+  }
+
+  .footer-logo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .payment-methods img {
+    width: 40px;
+  }
+
+  .toast span {
+    font-size: 0.8rem;
+  }
+}
