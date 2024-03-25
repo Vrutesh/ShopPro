@@ -52,7 +52,6 @@
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
 }
 
 .logo {
@@ -576,19 +575,12 @@ footer {
     margin: 0 auto;
   }
 
-  .product-category {
-    display: flex;
-    justify-content: flex-end;
-  }
-
   footer {
     gap: 30px;
   }
 
   .footer-logo {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    line-height: 5rem;
   }
 
   .payment-methods img {

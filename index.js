@@ -1,5 +1,3 @@
-// console.log("let's write javascript");
-
 fetch("https://fakestoreapi.com/products")
   .then((response) => {
     if (!response.ok) {
@@ -34,6 +32,7 @@ function displayProduct(product) {
 
     let product_img = document.createElement("img");
     product_img.classList.add("product-img");
+    product_img.alt ='product'
     product_img.src = product.image;
 
     let product_details = document.createElement("div");
@@ -108,7 +107,6 @@ function displayProduct(product) {
 }
 
 // addtowishlist --------------------------
-
 function addtowishlist(product, id) {
   let wishlistbtn = document.createElement("p");
   wishlistbtn.classList.add("wishlistbtn");
@@ -203,6 +201,8 @@ function updateCart() {
 }
 updateCart();
 
+
+//toast message 
 function showToast(msgicon, message) {
   let toastcontainer = document.querySelector(".toast");
   let toastmsg = document.querySelector(".toastmsg");

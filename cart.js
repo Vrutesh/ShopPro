@@ -1,5 +1,4 @@
 function getProduct() {
-  // Initialize an empty array to store products
   let products = [];
 
   // Iterate through each key in localStorage
@@ -18,7 +17,7 @@ function getProduct() {
     }
   }
 
-  return products; // Return the array of products
+  return products;
 }
 
 // Call getProduct to get the products from localStorage
@@ -39,6 +38,7 @@ function displayProduct(parsedItem) {
   product_img.classList.add("product-img");
   let item_img = document.createElement("img");
   item_img.src = `${parsedItem.image}`;
+  item_img.alt = "product";
   product_img.appendChild(item_img);
 
   let product_info = document.createElement("div");
@@ -209,7 +209,16 @@ function orderDetails(products) {
 let product_details = getProduct();
 
 // Call orderDetails with the products array
-orderDetails(product_details); // Pass product_details instead of products to the orderDetails function
+orderDetails(product_details);
+
+function updateCart() {
+  let cart = document.querySelector(".cart");
+  let itemCount = "";
+  itemCount = localStorage.length;
+  cart.innerHTML = `<img src="assets/icons/cart.svg" alt="cart"> ${itemCount}`;
+}
+
+updateCart();
 
 // function removeProduct() {
 //   let removeItemBtns = document.querySelectorAll(".remove-item-btn");
