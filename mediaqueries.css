@@ -1,62 +1,81 @@
 @media only screen and (max-width: 480px) {
-
-    .mar{
-        max-width: 100%;
-        margin: 0;
-    }
-    .navbar{
-        width: 100%;
-    }
-
-    .logo{
-        font-size: 2rem;
-    }
-    .nav-menu{
-        display: none;
-    }
-    .search-bar{
-        display: none;
-    }
-
-    #hero-section{
-        margin: 50px 0;
-        flex-direction: column;
-        gap: 50px;
-        align-items: center;
-    }
-
-    .left-hero-section{
-        width: 100%;
-        align-items: center;
-    }
-    .left-hero-section h1{
-        text-align: center;
-    }
-
-    .left-hero-section p{
-        text-align: center;
-    }
-
-    .right-hero-section img{
-        display: flex;
-        justify-content: center;
-    }
-
-    #product-container{
-        display: flex;
-        overflow: auto;
-        scroll-snap-type: x mandatory;
-        scroll-padding: 24px;
-        gap: 32px;
-    }
-
-    #product-container::-webkit-scrollbar{
-        display: none;
-    }
-    #product-container .card{
-        flex: 0 0 70%;
-        scroll-snap-align: start;
-    }
-
+  .mar {
+    max-width: 100%;
+    margin: 0;
   }
-  
+  .navbar {
+    width: 100%;
+  }
+
+  .logo {
+    font-size: 2rem;
+  }
+  .nav-menu {
+    display: none;
+  }
+  .search-bar {
+    display: none;
+  }
+
+  #hero-section {
+    margin: 50px 0;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+  }
+
+  .left-hero-section {
+    width: 100%;
+    align-items: center;
+  }
+  .left-hero-section h1 {
+    text-align: center;
+  }
+
+  .left-hero-section p {
+    text-align: center;
+  }
+
+  .right-hero-section {
+    height: 60vh;
+  }
+
+  #product-container {
+    display: flex;
+    overflow: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 24px;
+    gap: 32px;
+    padding: 30px 40px;
+  }
+
+  #product-container::-webkit-scrollbar {
+    display: none;
+  }
+  #product-container .card {
+    flex: 0 0 80%;
+    height: 450px;
+    scroll-snap-align: start;
+  }
+
+  .card img {
+    width: 70%;
+    height: 45%;
+    margin: auto;
+  }
+
+  .product-category {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  footer{
+    gap: 30px;
+  }
+
+  .footer-logo{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
