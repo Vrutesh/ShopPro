@@ -104,7 +104,7 @@ function orderDetails(products) {
 
   let sub_total_price = document.createElement("h3");
   sub_total_price.classList.add("sub-total-price");
-  sub_total_price.innerHTML = `$${total}`;
+  sub_total_price.innerHTML = `$${total.toFixed(2)}`;
 
   sub_total.appendChild(sub_total_heading);
   sub_total.appendChild(sub_total_price);
@@ -155,7 +155,7 @@ function orderDetails(products) {
 
   let total_charges = document.createElement("h3");
   total_charges.classList.add("total");
-  total_charges.innerHTML = `$${totalCharges}`;
+  total_charges.innerHTML = `$${totalCharges.toFixed(2)}`;
 
   total_charges_container.appendChild(total_charges_heading);
   total_charges_container.appendChild(total_charges);
