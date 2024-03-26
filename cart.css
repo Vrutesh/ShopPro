@@ -142,6 +142,9 @@
   background: rgba(117, 117, 117, 0.099);
   transition: 0.5s;
 }
+.hamburger-menu{
+  display: none;
+}
 
 .sidebar{
   display: none;
@@ -428,7 +431,7 @@ footer {
   }
 
   .container {
-    padding: 0 10px;
+    padding: 0 25px 0 10px;
   }
   .navbar {
     width: 100%;
@@ -453,7 +456,6 @@ footer {
   }
 
   .profile-cart a.cart {
-    margin-left: 125px;
     margin-bottom: 5px;
   }
 
@@ -461,15 +463,18 @@ footer {
     gap: 10px;
     margin-left: 0;
   }
+  .hamburger-menu{
+    display: block;
+  }
 
   .sidebar {
     display: block;
-    width: 250px;
+    width: 60%;
     height: 100vh;
-    background-color: rgba(255, 255, 255, 0.83);
+    background-color: rgb(255, 255, 255);
     position: fixed;
     top: 0;
-    right: -250px;
+    right: -60%;
     transition: right 0.3s ease;
     box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
     z-index: 10;
@@ -498,6 +503,7 @@ footer {
     justify-content: center;
     align-items: center;
     font-family: "Tektur", sans-serif;
+    padding: 5px 0;
   }
   .sidebar ul li a {
     color: #000;
@@ -506,12 +512,14 @@ footer {
     display: flex;
     align-items: center;
     gap: 10px;
+    margin: 0;
+    padding: 0;
   }
 
   .divider {
     height: 0.8px;
     background-color: rgb(163, 163, 163);
-    width: 80%;
+    width: 100%;
   }
 
 
