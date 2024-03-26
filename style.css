@@ -128,6 +128,10 @@
   transition: 0.5s;
 }
 
+.sidebar {
+  display: none;
+}
+
 /* hero section */
 #hero-section {
   margin: 100px auto;
@@ -162,6 +166,8 @@
   font-size: 1.1rem;
   transition: 0.3s;
   cursor: pointer;
+  text-align: center;
+  text-decoration: none;
 }
 
 .shopnow-btn:hover {
@@ -491,7 +497,6 @@ footer {
   display: flex;
   gap: 10px;
 }
-
 /* media query for max-width 480px  */
 @media only screen and (max-width: 480px) {
   .mar {
@@ -500,7 +505,7 @@ footer {
   }
 
   .container {
-    padding: 0 10px;
+    padding: 0 15px;
   }
   .navbar {
     width: 100%;
@@ -516,9 +521,73 @@ footer {
     display: none;
   }
 
-  .profile-cart a {
-    gap: 5px;
+  .profile-cart a.addwishlist {
+    display: none;
+  }
+  .profile-cart a.user {
+    display: none;
+  }
+
+  .profile-cart a.cart {
+    margin-left: 125px;
+    margin-bottom: 5px;
+  }
+
+  .profile-cart {
+    gap: 10px;
     margin-left: 0;
+  }
+
+  .sidebar {
+    display: block;
+    width: 250px;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.6);
+    position: fixed;
+    top: 0;
+    right: -250px;
+    transition: right 0.3s ease;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    z-index: 10;
+  }
+
+  .sidebar.open {
+    right: 0;
+  }
+  .close-sidebar {
+    margin: 20px;
+  }
+
+  .sidebar-menu ul {
+    height: 100vh;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+  }
+
+  .sidebar ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Tektur", sans-serif;
+  }
+  .sidebar ul li a {
+    color: #000;
+    text-decoration: none;
+    font-family: "Tektur", sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .divider {
+    height: 0.8px;
+    background-color: rgb(58, 58, 58);
+    width: 80%;
   }
 
   #hero-section {
@@ -557,21 +626,21 @@ footer {
     scroll-snap-type: x mandatory;
     scroll-padding: 24px;
     gap: 32px;
-    padding: 30px 40px;
+    padding: 10px 40px;
   }
 
   #product-container::-webkit-scrollbar {
     display: none;
   }
   #product-container .card {
-    flex: 0 0 90%;
+    flex: 0 0 100%;
     scroll-snap-align: start;
     padding: 10px 10px;
   }
 
   .card img {
     width: 70%;
-    height: 40%;
+    height: 45%;
     margin: 0 auto;
   }
 

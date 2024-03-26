@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Cart</title>
     <link rel="stylesheet" href="cart.css">
-    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Reggae+One&display=swap&family=Tektur:wght@400..900&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="mediaqueries.css"> -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Reggae+One&display=swap&family=Tektur:wght@400..900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -30,10 +33,37 @@
                         alt="searchicon"></button>
             </div>
             <div class="profile-cart">
-                <a href="#" class="addwishlist"><i class="fa-solid fa-heart"></i></a>
                 <a href="#" class="cart"><img src="assets/icons/cart.svg" alt="shopping-cart"></a>
-                <a href="#"><img src="assets/icons/user.svg" alt="profile-user"></a>
+                <a href="#" class="user"><img src="assets/icons/user.svg" alt="profile-user"></a>
             </div>
+            <!-- sidebar starts here -->
+            <div class="hamburger-menu">
+                <img src="assets/icons/menu.svg" alt="menu" class="hamburger-icon">
+            </div>
+            <div class="sidebar">
+                <div class="close-sidebar">
+                    <img src="assets/icons/cross.svg" alt="cross">
+                </div>
+                <div class="sidebar-menu">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <span class="divider"></span>
+                        <li><a href="index.html">Shop</a></li>
+                        <span class="divider"></span>
+                        <li>On Sale</li>
+                        <span class="divider"></span>
+                        <li>New Arrivals</li>
+                        <span class="divider"></span>
+                        <li><a href="cart.html">Your Cart</a></li>
+                        <span class="divider"></span>
+                        <li><a href="#">Your Wishlist</a></li>
+                        <span class="divider"></span>
+                        <li><a href="#">Profile<img src="assets/icons/user.svg" alt="profile-user"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- sidebar ends here -->
+
         </div>
     </header>
     <!-- navbar ends here -->
@@ -52,7 +82,7 @@
         </div>
     </div>
     <!-- shopping cart ends here -->
-    
+
     <!-- gototopbtn starts here -->
     <div class="gototop-btn">
         <button>
@@ -62,8 +92,8 @@
     </div>
     <!-- gototopbtn ends here -->
 
-     <!-- footer starts here -->
-     <footer>
+    <!-- footer starts here -->
+    <footer>
         <div class="footer-logo">
             <h1>ShopPro</h1>
             <p>We have Clothes that suits your style and which you're proud to wear. From women to men</p>

@@ -32,7 +32,7 @@ function displayProduct(product) {
 
     let product_img = document.createElement("img");
     product_img.classList.add("product-img");
-    product_img.alt ='product'
+    product_img.alt = "product";
     product_img.src = product.image;
 
     let product_details = document.createElement("div");
@@ -201,8 +201,7 @@ function updateCart() {
 }
 updateCart();
 
-
-//toast message 
+//toast message
 function showToast(msgicon, message) {
   let toastcontainer = document.querySelector(".toast");
   let toastmsg = document.querySelector(".toastmsg");
@@ -216,3 +215,33 @@ function showToast(msgicon, message) {
     }, 2000);
   }, 1000);
 }
+
+//sidebar
+
+function appBar() {
+  const sidebar = document.querySelector(".sidebar");
+  const hamburgerIcon = document.querySelector(".hamburger-icon");
+  const body = document.querySelector("body");
+  const closeSidebar = document.querySelector(".close-sidebar");
+
+  hamburgerIcon.addEventListener("click", function (event) {
+    event.stopPropagation();
+    sidebar.classList.toggle("open");
+  });
+
+  // Close sidebar when clicking outside of it
+  body.addEventListener("click", function (event) {
+    if (
+      !sidebar.contains(event.target) &&
+      !hamburgerIcon.contains(event.target)
+    ) {
+      sidebar.classList.remove("open");
+    }
+  });
+
+  closeSidebar.addEventListener("click", function () {
+    sidebar.classList.remove("open");
+  });
+}
+
+appBar();
