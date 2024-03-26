@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Cart</title>
-    <link rel="stylesheet" href="cart.css">
-    <!-- <link rel="stylesheet" href="mediaqueries.css"> -->
+    <title>Favourites</title>
+    <link rel="stylesheet" href="wishlist.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Reggae+One&display=swap&family=Tektur:wght@400..900&display=swap"
         rel="stylesheet">
@@ -34,7 +33,7 @@
             </div>
             <div class="profile-cart">
                 <a href="wishlist.html" class="addwishlist"><i class="fa-solid fa-heart"></i></a>
-                <a href="#" class="cart"><img src="assets/icons/cart.svg" alt="shopping-cart"></a>
+                <a href="cart.html" class="cart"><img src="assets/icons/cart.svg" alt="shopping-cart"></a>
                 <a href="#" class="user"><img src="assets/icons/user.svg" alt="profile-user"></a>
                 <!-- sidebar starts here -->
                 <div class="hamburger-menu">
@@ -69,23 +68,23 @@
     </header>
     <!-- navbar ends here -->
 
-    <!-- shopping cart starts here -->
-    <h1 class="cart-heading mar">Your Cart</h1>
+    <!-- wishlist container starts here  -->
+    <h1 class="wishlist-heading mar">Favourites</h1>
     <div class="breadcrumbs mar">
         <a href="index.html" class='previous-tab'>Home</a>
         <i class="fa-solid fa-angle-right"></i>
-        <a href="cart.html" class="active-tab">Cart</a>
+        <a href="cart.html" class="active-tab">Wishlist</a>
     </div>
-    <div class="cart-container mar">
-        <div class="product-container">
-        </div>
-        <div class="order-details">
-        </div>
-    </div>
-    <!-- shopping cart ends here -->
 
-    <!-- gototopbtn starts here -->
-    <div class="gototop-btn">
+    <!-- <div class="wishlist-container mar"> -->
+        <section class="product-container mar">
+           
+        </section>
+    <!-- </div> -->
+    <!-- wishlist ends starts here  -->
+
+      <!-- gototopbtn starts here -->
+      <div class="gototop-btn">
         <button>
             <a href="#nav"><span>Go to Top</span></a>
         </button>
@@ -93,8 +92,8 @@
     </div>
     <!-- gototopbtn ends here -->
 
-    <!-- footer starts here -->
-    <footer>
+     <!-- footer starts here -->
+     <footer>
         <div class="footer-logo">
             <h1>ShopPro</h1>
             <p>We have Clothes that suits your style and which you're proud to wear. From women to men</p>
@@ -157,7 +156,8 @@
     </footer>
     <!-- footer ends here -->
 
-    <script src="cart.js"></script>
+
+    <script src="wishlist.js"></script>
 </body>
 
 </html>

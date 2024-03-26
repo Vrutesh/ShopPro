@@ -16,7 +16,6 @@ function getProduct() {
       }
     }
   }
-
   return products;
 }
 
