@@ -466,7 +466,7 @@ footer {
     display: block;
     width: 250px;
     height: 100vh;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.83);
     position: fixed;
     top: 0;
     right: -250px;
@@ -478,8 +478,8 @@ footer {
   .sidebar.open {
     right: 0;
   }
-  .close-sidebar{
-    margin: 20px;
+  .close-sidebar {
+    margin: 20px 20px 0 20px;
   }
 
   .sidebar-menu ul {
@@ -510,9 +510,10 @@ footer {
 
   .divider {
     height: 0.8px;
-    background-color: rgb(58, 58, 58);
+    background-color: rgb(163, 163, 163);
     width: 80%;
   }
+
 
   .cart-container {
     flex-direction: column;
