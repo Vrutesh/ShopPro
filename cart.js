@@ -25,6 +25,7 @@ let products = getProduct();
 // Loop through the products array and display each product
 products.forEach((parsedItem) => {
   displayProduct(parsedItem);
+  removeProduct(parsedItem)
 });
 
 function displayProduct(parsedItem) {
@@ -212,34 +213,52 @@ orderDetails(product_details);
 
 function updateCart() {
   let cart = document.querySelector(".cart");
-  let itemCount = "";
-  itemCount = localStorage.length;
+  let itemCount = ''; 
+  for (let i = 0; i < localStorage.length; i++) {
+    let key = localStorage.key(i);
+    if (key.startsWith("product_")) {
+      itemCount++;
+    }
+  }
   cart.innerHTML = `<img src="assets/icons/cart.svg" alt="cart"> ${itemCount}`;
+  cart.addEventListener("click", () => {
+    window.location.href = "cart.html";
+  });
 }
 
 updateCart();
 
-// function removeProduct() {
-//   let removeItemBtns = document.querySelectorAll(".remove-item-btn");
-//   let product_cards = document.querySelectorAll(".product-card-container");
+function showWishlist(){
+  let addwishlist = document.querySelector('.addwishlist')
+  let wishlistProdCount = ''
+  for (let i =0; i< localStorage.length; i++){
+    let key= localStorage.key(i)
+    if(key.startsWith('cart_')){
+      wishlistProdCount++
+    }
+  }
+  addwishlist.innerHTML = `<i class="fa-solid fa-heart"></i> ${wishlistProdCount}`
+}
+showWishlist()
 
-//   removeItemBtns.forEach((removeItemBtn, index) => {
-//     removeItemBtn.addEventListener("click", () => {
-//       let keyToRemove = `product_${index}`;
+function removeProduct(parsedItem) {
+  let removeItemBtns = document.querySelectorAll(".remove-item-btn");
+  let product_cards = document.querySelectorAll(".product-card-container");
+  
 
-//       console.log("Key to remove:", keyToRemove);
+  removeItemBtns.forEach((removeItemBtn, index) => {
+    removeItemBtn.addEventListener("click", () => {
+      let productId = parsedItem.id; 
+      let keyToRemove = `product_${productId}`;      
+      localStorage.removeItem(keyToRemove);
+      product_cards[index].style.display = "none";
+    });
+  });
+}
 
-//       let result = localStorage.removeItem(keyToRemove);
-//       console.log(result)
 
-//       // console.log("Updated localStorage:", localStorage);
+removeProduct();
 
-//       product_cards[index].style.display = "none";
-//     });
-//   });
-// }
-
-// removeProduct();
 
 //sidebar
 

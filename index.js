@@ -212,8 +212,8 @@ function showToast(msgicon, message) {
     setTimeout(() => {
       toastcontainer.style.display = "";
       toastmsg.innerHTML = "";
-    }, 2000);
-  }, 1000);
+    }, 1000);
+  }, 500);
 }
 
 //sidebar

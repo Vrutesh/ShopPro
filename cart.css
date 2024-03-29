@@ -422,6 +422,25 @@ footer {
   width: 60px;
 }
 
+.toast {
+  display: none;
+  position: fixed;
+  top: 15%;
+  right: 2%;
+  transition: transform 0.5s ease-in-out; /* Add transition for smooth appearance */
+  transform-origin: right center;
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+.toast span {
+  background: #272727;
+  color: var(--secondary-color);
+  padding: 10px 15px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  display: flex;
+  gap: 10px;
+}
+
 
 /* media query for max-width 480px  */
 @media only screen and (max-width: 480px) {
@@ -580,4 +599,5 @@ footer {
   .toast span {
     font-size: 0.8rem;
   }
+  
 }

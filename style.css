@@ -486,7 +486,7 @@ footer {
 .toast {
   display: none;
   position: fixed;
-  top: 10%;
+  top: 15%;
   right: 2%;
   transition: transform 0.5s ease-in-out; /* Add transition for smooth appearance */
   transform-origin: right center;
