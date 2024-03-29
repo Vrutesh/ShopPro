@@ -193,7 +193,7 @@ function updateCart() {
       itemCount++;
     }
   }
-  cart.innerHTML = `<img src="../../assets/icons/cart.svg" alt="cart"> ${itemCount}`;
+  cart.innerHTML = `<img src="assets/icons/cart.svg" alt="cart"> ${itemCount}`;
 }
 updateCart();
 
