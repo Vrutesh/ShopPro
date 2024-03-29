@@ -7,7 +7,6 @@ fetch("https://fakestoreapi.com/products")
   })
   .then((product) => {
     displayProduct(product);
-    // console.log(product);
   })
   .catch((error) => {
     console.error("Fetch error:", error);
@@ -194,10 +193,7 @@ function updateCart() {
       itemCount++;
     }
   }
-  cart.innerHTML = `<img src="assets/icons/cart.svg" alt="cart"> ${itemCount}`;
-  cart.addEventListener("click", () => {
-    window.location.href = "cart.html";
-  });
+  cart.innerHTML = `<img src="../../assets/icons/cart.svg" alt="cart"> ${itemCount}`;
 }
 updateCart();
 
@@ -246,3 +242,16 @@ function appBar() {
 }
 
 appBar();
+
+// gototop Button
+window.addEventListener("scroll", function () {
+  // Get the "Go to Top" button element
+  const gototopBtn = document.getElementById("gototopBtn");
+
+  // If the user scrolled more than 20 pixels down, show the button; otherwise, hide it
+  if (window.scrollY > 20) {
+    gototopBtn.style.display = "flex";
+  } else {
+    gototopBtn.style.display = "none";
+  }
+});

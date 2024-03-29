@@ -1,11 +1,9 @@
 function getProduct() {
   let products = [];
 
-  // Iterate through each key in localStorage
   for (let i = 0; i < localStorage.length; i++) {
     let key = localStorage.key(i);
 
-    // Check if the key matches the pattern 'product_'
     if (key.startsWith("product_")) {
       let item = localStorage.getItem(key);
 
@@ -22,7 +20,6 @@ function getProduct() {
 // Call getProduct to get the products from localStorage
 let products = getProduct();
 
-// Loop through the products array and display each product
 products.forEach((parsedItem) => {
   displayProduct(parsedItem);
   removeProduct(parsedItem);
@@ -73,7 +70,11 @@ function displayProduct(parsedItem) {
   product_card_container.appendChild(product_info);
 
   container.appendChild(product_card_container);
+
+  updateCart();
 }
+
+//order details
 
 function orderDetails(products) {
   let total = 0;
@@ -149,7 +150,7 @@ function orderDetails(products) {
   total_charges_container.classList.add("total-amount");
   total_charges_container.classList.add("justify-content");
 
-  let total_charges_heading = document.createElement("p"); // Create a separate element for delivery heading
+  let total_charges_heading = document.createElement("p");
   total_charges_heading.classList.add("order-heading");
   total_charges_heading.innerText = "Total Amount";
 
@@ -188,7 +189,7 @@ function orderDetails(products) {
   checkout_btn.innerHTML = `Checkout <i class="fa-solid fa-angle-right"></i>`;
 
   checkout_btn.addEventListener("click", () => {
-    window.location.href = "checkout.html";
+    window.location.href = "Pages\Checkout\checkout.html";
   });
 
   checkout_container.appendChild(checkout_btn);
@@ -207,8 +208,6 @@ function orderDetails(products) {
 
 // Call getProduct to get the products from localStorage
 let product_details = getProduct();
-
-// Call orderDetails with the products array
 orderDetails(product_details);
 
 function updateCart() {
@@ -220,45 +219,37 @@ function updateCart() {
       itemCount++;
     }
   }
-  cart.innerHTML = `<img src="assets/icons/cart.svg" alt="cart"> ${itemCount}`;
-  cart.addEventListener("click", () => {
-    window.location.href = "cart.html";
-  });
+  cart.innerHTML = `<img src="../../assets/icons/cart.svg" alt="cart"> ${itemCount}`;
 }
 
-updateCart();
-
-function showWishlist() {
-  let addwishlist = document.querySelector(".addwishlist");
-  let wishlistProdCount = "";
-  for (let i = 0; i < localStorage.length; i++) {
-    let key = localStorage.key(i);
-    if (key.startsWith("cart_")) {
-      wishlistProdCount++;
-    }
-  }
-  addwishlist.innerHTML = `<i class="fa-solid fa-heart"></i> ${wishlistProdCount}`;
-}
-showWishlist();
-
-function removeProduct(parsedItem) {
+function removeProduct(product) {
   let removeItemBtns = document.querySelectorAll(".remove-item-btn");
   let product_cards = document.querySelectorAll(".product-card-container");
 
   removeItemBtns.forEach((removeItemBtn, index) => {
     removeItemBtn.addEventListener("click", () => {
-      let productId = parsedItem.id;
-      let keyToRemove = `product_${productId}`;
-      localStorage.removeItem(keyToRemove);
+      localStorage.removeItem("product_" + product.id);
       product_cards[index].style.display = "none";
+      // updateCart()
     });
   });
 }
 
-removeProduct();
+function showWishlistCount() {
+  let addwishlist = document.querySelector(".addwishlist");
+  let itemCount = "";
+  for (let i = 0; i < localStorage.length; i++) {
+    let key = localStorage.key(i);
+    if (key.startsWith("cart_")) {
+      itemCount++;
+    }
+  }
+  addwishlist.innerHTML = `<i class="fa-solid fa-heart"></i> ${itemCount}`;
+}
+
+showWishlistCount();
 
 //sidebar
-
 function appBar() {
   const sidebar = document.querySelector(".sidebar");
   const hamburgerIcon = document.querySelector(".hamburger-icon");
@@ -286,3 +277,16 @@ function appBar() {
 }
 
 appBar();
+
+// gototop Button
+window.addEventListener("scroll", function () {
+  // Get the "Go to Top" button element
+  const gototopBtn = document.getElementById("gototopBtn");
+
+  // If the user scrolled more than 20 pixels down, show the button; otherwise, hide it
+  if (window.scrollY > 20) {
+    gototopBtn.style.display = "flex";
+  } else {
+    gototopBtn.style.display = "none";
+  }
+});

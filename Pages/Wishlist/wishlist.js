@@ -101,6 +101,7 @@ function showWishlist() {
 }
 showWishlist();
 
+
 function removeWishlist(product) {
   let cardWishlistBtns = document.querySelectorAll(".addwishlistbtn");
   let card_container = document.querySelectorAll(".card-container");
@@ -126,7 +127,6 @@ function removeWishlist(product) {
   });
 }
 
-removeWishlist();
 
 //toast message
 function showToast(msgicon, message) {
@@ -143,6 +143,22 @@ function showToast(msgicon, message) {
   }, 500);
 }
 
+function showCart(){
+  let cart = document.querySelector(".cart");
+
+  let itemCount = ''
+  for(let i = 0; i<localStorage.length; i++){
+    let key = localStorage.key(i)
+    if(key.startsWith('product_')){
+      itemCount++
+    }
+  }
+  cart.innerHTML = `<img src="../../assets/icons/cart.svg" alt="cart"> ${itemCount}`;
+
+}
+
+showCart()
+
 //sidebar
 
 function appBar() {
@@ -154,6 +170,7 @@ function appBar() {
   hamburgerIcon.addEventListener("click", function (event) {
     event.stopPropagation();
     sidebar.classList.toggle("open");
+    body.style.backgroundColor = "rgba(255, 255, 255, 0.8)";
   });
 
   // Close sidebar when clicking outside of it
@@ -172,3 +189,17 @@ function appBar() {
 }
 
 appBar();
+
+
+// gototop Button 
+window.addEventListener('scroll', function() {
+  // Get the "Go to Top" button element
+  const gototopBtn = document.getElementById('gototopBtn');
+  
+  // If the user scrolled more than 20 pixels down, show the button; otherwise, hide it
+  if (window.scrollY > 20) {
+      gototopBtn.style.display = 'flex';
+  } else {
+      gototopBtn.style.display = 'none';
+  }
+});
