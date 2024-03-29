@@ -163,7 +163,6 @@
   gap: 10px;
   /* margin-bottom: 20px; */
   padding: 0 0 0 25px;
-
 }
 
 .breadcrumbs a {
@@ -262,8 +261,6 @@
   padding: 5px 20px 0 10px;
 }
 
-
-
 .add-to-cart-btn {
   position: relative;
   padding: 10px 20px;
@@ -338,7 +335,7 @@
   transition: box-shadow 0.2s ease-in;
 }
 
-.addwishlistbtn{
+.addwishlistbtn {
   color: var(--primary-color);
 }
 
@@ -350,7 +347,6 @@
 .addwishlistbtn:active {
   transform: scale(0.87);
 }
-
 
 /* footer  */
 footer {
@@ -419,7 +415,6 @@ footer {
 .payment-methods img {
   width: 60px;
 }
-
 
 /* Go to top Button  */
 
@@ -618,16 +613,14 @@ footer {
     display: none;
   }
 
-  .card-container{
+  .card-container {
     flex: 0 0 100%;
     scroll-snap-align: start;
     padding: 10px 10px;
   }
 
- 
-
-  .product-title{
-    font-size: .9rem;
+  .product-title {
+    font-size: 0.9rem;
   }
 
   footer {

@@ -142,11 +142,11 @@
   background: rgba(117, 117, 117, 0.099);
   transition: 0.5s;
 }
-.hamburger-menu{
+.hamburger-menu {
   display: none;
 }
 
-.sidebar{
+.sidebar {
   display: none;
 }
 
@@ -441,7 +441,6 @@ footer {
   gap: 10px;
 }
 
-
 /* media query for max-width 480px  */
 @media only screen and (max-width: 480px) {
   .mar {
@@ -466,7 +465,6 @@ footer {
     display: none;
   }
 
- 
   .profile-cart a.addwishlist {
     display: none;
   }
@@ -482,7 +480,7 @@ footer {
     gap: 10px;
     margin-left: 0;
   }
-  .hamburger-menu{
+  .hamburger-menu {
     display: block;
   }
 
@@ -541,7 +539,6 @@ footer {
     width: 100%;
   }
 
-
   .cart-container {
     flex-direction: column;
     align-items: center;
@@ -599,5 +596,4 @@ footer {
   .toast span {
     font-size: 0.8rem;
   }
-  
 }

@@ -128,7 +128,7 @@
   transition: 0.5s;
 }
 
-.hamburger-menu{
+.hamburger-menu {
   display: none;
 }
 
@@ -540,7 +540,7 @@ footer {
     gap: 10px;
     margin-left: 0;
   }
-  .hamburger-menu{
+  .hamburger-menu {
     display: block;
   }
 

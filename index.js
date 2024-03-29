@@ -227,7 +227,7 @@ function appBar() {
   hamburgerIcon.addEventListener("click", function (event) {
     event.stopPropagation();
     sidebar.classList.toggle("open");
-    body.style.backgroundColor ='rgba(255, 255, 255, 0.8)'
+    body.style.backgroundColor = "rgba(255, 255, 255, 0.8)";
   });
 
   // Close sidebar when clicking outside of it

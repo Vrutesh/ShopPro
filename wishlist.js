@@ -18,7 +18,7 @@ let products = getProduct();
 
 products.forEach((parsedItem) => {
   displayProduct(parsedItem);
-  removeWishlist(parsedItem)
+  removeWishlist(parsedItem);
 });
 
 function displayProduct(product) {
@@ -103,20 +103,24 @@ showWishlist();
 
 function removeWishlist(product) {
   let cardWishlistBtns = document.querySelectorAll(".addwishlistbtn");
-  let card_container = document.querySelectorAll('.card-container')
-  
+  let card_container = document.querySelectorAll(".card-container");
+
   cardWishlistBtns.forEach((cardWishlistBtn, index) => {
     if (localStorage.getItem("cart_" + product.id)) {
       cardWishlistBtn.style.color = "red";
-      
+
       cardWishlistBtn.addEventListener("click", () => {
         if (cardWishlistBtn.style.color === "red") {
           cardWishlistBtn.style.color = "black";
           localStorage.removeItem("cart_" + product.id);
-          card_container[index].style.display = 'none';
-          showWishlist(showToast( '<i class="fa-solid fa-heart" style="color:red;"></i>',
-          "Product is removed from your Wishlist")); 
-        } 
+          card_container[index].style.display = "none";
+          showWishlist(
+            showToast(
+              '<i class="fa-solid fa-heart" style="color:red;"></i>',
+              "Product is removed from your Wishlist"
+            )
+          );
+        }
       });
     }
   });
@@ -139,5 +143,32 @@ function showToast(msgicon, message) {
   }, 500);
 }
 
+//sidebar
 
+function appBar() {
+  const sidebar = document.querySelector(".sidebar");
+  const hamburgerIcon = document.querySelector(".hamburger-icon");
+  const body = document.querySelector("body");
+  const closeSidebar = document.querySelector(".close-sidebar");
 
+  hamburgerIcon.addEventListener("click", function (event) {
+    event.stopPropagation();
+    sidebar.classList.toggle("open");
+  });
+
+  // Close sidebar when clicking outside of it
+  body.addEventListener("click", function (event) {
+    if (
+      !sidebar.contains(event.target) &&
+      !hamburgerIcon.contains(event.target)
+    ) {
+      sidebar.classList.remove("open");
+    }
+  });
+
+  closeSidebar.addEventListener("click", function () {
+    sidebar.classList.remove("open");
+  });
+}
+
+appBar();
