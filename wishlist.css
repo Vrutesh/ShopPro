@@ -454,7 +454,6 @@ footer {
   .close-sidebar {
     margin: 20px 20px 0 20px;
   }
-
   .sidebar-menu ul {
     height: 100vh;
     list-style: none;
@@ -462,8 +461,8 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 15px;
-    padding: 20px;
+    gap: 5px;
+    padding: 0 20px;
   }
 
   .sidebar ul li {
@@ -471,9 +470,12 @@ footer {
     justify-content: center;
     align-items: center;
     font-family: "Tektur", sans-serif;
-    padding: 5px 0;
+    padding: 15px;
   }
+
   .sidebar ul li a {
+    width: 100%;
+    height: max-content;
     color: #000;
     text-decoration: none;
     font-family: "Tektur", sans-serif;
