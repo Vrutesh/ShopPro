@@ -25,7 +25,7 @@ let products = getProduct();
 // Loop through the products array and display each product
 products.forEach((parsedItem) => {
   displayProduct(parsedItem);
-  removeProduct(parsedItem)
+  removeProduct(parsedItem);
 });
 
 function displayProduct(parsedItem) {
@@ -213,7 +213,7 @@ orderDetails(product_details);
 
 function updateCart() {
   let cart = document.querySelector(".cart");
-  let itemCount = ''; 
+  let itemCount = "";
   for (let i = 0; i < localStorage.length; i++) {
     let key = localStorage.key(i);
     if (key.startsWith("product_")) {
@@ -228,37 +228,34 @@ function updateCart() {
 
 updateCart();
 
-function showWishlist(){
-  let addwishlist = document.querySelector('.addwishlist')
-  let wishlistProdCount = ''
-  for (let i =0; i< localStorage.length; i++){
-    let key= localStorage.key(i)
-    if(key.startsWith('cart_')){
-      wishlistProdCount++
+function showWishlist() {
+  let addwishlist = document.querySelector(".addwishlist");
+  let wishlistProdCount = "";
+  for (let i = 0; i < localStorage.length; i++) {
+    let key = localStorage.key(i);
+    if (key.startsWith("cart_")) {
+      wishlistProdCount++;
     }
   }
-  addwishlist.innerHTML = `<i class="fa-solid fa-heart"></i> ${wishlistProdCount}`
+  addwishlist.innerHTML = `<i class="fa-solid fa-heart"></i> ${wishlistProdCount}`;
 }
-showWishlist()
+showWishlist();
 
 function removeProduct(parsedItem) {
   let removeItemBtns = document.querySelectorAll(".remove-item-btn");
   let product_cards = document.querySelectorAll(".product-card-container");
-  
 
   removeItemBtns.forEach((removeItemBtn, index) => {
     removeItemBtn.addEventListener("click", () => {
-      let productId = parsedItem.id; 
-      let keyToRemove = `product_${productId}`;      
+      let productId = parsedItem.id;
+      let keyToRemove = `product_${productId}`;
       localStorage.removeItem(keyToRemove);
       product_cards[index].style.display = "none";
     });
   });
 }
 
-
 removeProduct();
-
 
 //sidebar
 
