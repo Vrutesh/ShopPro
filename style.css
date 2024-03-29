@@ -465,7 +465,7 @@ footer {
     justify-content: center;
     align-items: center;
     gap: 5px;
-    padding: 0 20px;
+    padding: 0 10px;
 
   }
 
@@ -474,7 +474,7 @@ footer {
     justify-content: center;
     align-items: center;
     font-family: "Tektur", sans-serif;
-    padding: 15px;
+    padding: 12px;
   }
   .sidebar ul li a {
     width: 100%;
