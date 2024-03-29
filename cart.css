@@ -463,7 +463,6 @@ footer {
     list-style: none;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     gap: 5px;
     margin-top: 90px;
@@ -495,6 +494,13 @@ footer {
     height: 0.8px;
     background-color: rgb(163, 163, 163);
     width: 100%;
+  }
+  .cart-heading{
+    padding-left: 10px;
+  }
+
+  .breadcrumbs{
+    padding-left: 10px;
   }
 
   .cart-container {
