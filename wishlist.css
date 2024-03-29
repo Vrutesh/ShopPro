@@ -462,8 +462,9 @@ footer {
     justify-content: center;
     align-items: center;
     gap: 5px;
-    padding: 0 10px;
-  }
+    margin-top: 90px;
+    padding: 0 15px;
+    }
 
   .sidebar ul li {
     display: flex;
