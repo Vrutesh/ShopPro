@@ -181,6 +181,7 @@ header h1 {
 }
 
 .placeorder-btn {
+  border-radius: 25px;
   width: 200px;
   padding: 10px 20px;
   display: flex;
@@ -212,10 +213,10 @@ header h1 {
     flex-direction: column;
   }
   .form-group > .input {
-    width: 350px;
+    width: 100%;
   }
   .form-group > #address {
-    width: 350px;
+    width: 100%;
   }
 
   .summary-container h3 {

@@ -16,6 +16,12 @@
 </head>
 
 <body>
+    <!-- offer section starts here  -->
+    <section id="offer-container">
+        <h4>Get FLAT 10% OFF on all orders</h4>
+        <h4>Use Code : OFFER50</h4>
+    </section>
+    <!-- offer section ends here  -->
 
     <!-- navbar starts here      -->
     <header class="navbar" id="nav">
@@ -29,9 +35,10 @@
                 </ul>
             </nav>
             <div class="search-bar">
-                <input type="search" placeholder="Search for Products">
-                <button type="submit" class="search-bar-btn"><img src="assets/icons/searchicon.svg"
-                        alt="searchicon"></button>
+                <input type="text" class="search_input" placeholder="Search here">
+                <button class="search_button">
+                    <img src="assets/icons/searchicon.svg" alt="" class="search_icon">
+                </button>
             </div>
             <div class="profile-cart">
                 <a href="wishlist.html" class="addwishlist"><i class="fa-solid fa-heart"></i></a>
@@ -41,27 +48,27 @@
                 <div class="hamburger-menu">
                     <img src="assets/icons/menu.svg" alt="menu" class="hamburger-icon">
                 </div>
-                <div class="sidebar">    
+                <div class="sidebar">
                     <div class="close-sidebar">
                         <img src="assets/icons/cross.svg" alt="cross">
-                    </div>    
-                        <div class="sidebar-menu">
-                            <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <span class="divider"></span>
-                                <li><a href="#product-container">Shop</a></li>
-                                <span class="divider"></span>
-                                <li>On Sale</li>
-                                <span class="divider"></span>
-                                <li>New Arrivals</li>
-                                <span class="divider"></span>
-                                <li><a href="cart.html">Your Cart</a></li>
-                                <span class="divider"></span>
-                                <li><a href="wishlist.html">Your Wishlist</a></li>
-                                <span class="divider"></span>
-                                <li><a href="#">Profile<img src="assets/icons/user.svg" alt="profile-user"></a></li>
-                            </ul>
-                        </div>
+                    </div>
+                    <div class="sidebar-menu">
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <span class="divider"></span>
+                            <li><a href="#product-container">Shop</a></li>
+                            <span class="divider"></span>
+                            <li>On Sale</li>
+                            <span class="divider"></span>
+                            <li>New Arrivals</li>
+                            <span class="divider"></span>
+                            <li><a href="cart.html">Your Cart</a></li>
+                            <span class="divider"></span>
+                            <li><a href="wishlist.html">Your Wishlist</a></li>
+                            <span class="divider"></span>
+                            <li><a href="#">Profile<img src="assets/icons/user.svg" alt="profile-user"></a></li>
+                        </ul>
+                    </div>
                 </div>
                 <!-- sidebar ends here -->
             </div>
@@ -85,7 +92,23 @@
         </div>
         <!-- </div> -->
     </section>
-    <!-- home hero banner starts here -->
+    <!-- home hero banner ends here -->
+
+    <!-- promo section starts here -->
+    <section id="promo-container">
+        <div class="promo-content mar">
+            <h3 class="promo-heading">Discover Your Perfect Products with ShopPro</h3>
+            <h2 class="promo-subheading">Not Sure What to Buy? Let ShopPro Help You!</h2>
+            <p class="promo-body">At ShopPro, we understand that finding the right products can be overwhelming. That's
+                why we've developed our advanced Product Recommender Tool. Whether you're shopping for electronics,
+                fashion,
+                home goods, or more, ShopPro's intelligent algorithm analyzes your preferences and needs to provide
+                personalized recommendations in minutes.</p>
+            <a href="#product-container" class="promo-btn cart-container-btns"><img src="assets/icons/downarrow.svg" alt="downarrow"
+                    class="white-svg">Explore Now</a>
+        </div>
+    </section>
+    <!-- promo section ends here -->
 
     <!-- products page starts here  -->
     <section id="product-container" class="mar">
@@ -151,9 +174,15 @@
         <div class="footer-social">
             <h4>Follow us on</h4>
             <div class="social-icons">
-                <img src="assets/icons/twitter.svg" alt="twitter">
-                <img src="assets/icons/instagram.svg" alt="instagram">
-                <img src="assets/icons/facebook.svg" alt="facebook">
+                <div class="social-icon">
+                    <img src="assets/icons/twitter.svg" alt="twitter">
+                </div>
+                <div class="social-icon">
+                    <img src="assets/icons/instagram.svg" alt="instagram">
+                </div>
+                <div class="social-icon">
+                    <img src="assets/icons/facebook.svg" alt="facebook">
+                </div>
             </div>
         </div>
         <div class="payment-methods">
