@@ -128,6 +128,10 @@ function orderDetails(products) {
   delivery_container.appendChild(delivery_heading);
   delivery_container.appendChild(charges);
 
+  // divider
+  let divider = document.createElement("div");
+  divider.classList.add("divider");
+
   //total amount
   let totalCharges = 0;
 
@@ -189,7 +193,7 @@ function orderDetails(products) {
   checkout_btn.innerHTML = `Checkout <i class="fa-solid fa-angle-right"></i>`;
 
   checkout_btn.addEventListener("click", () => {
-    window.location.href = "Pages\Checkout\checkout.html";
+    window.location.href = "checkout.html";
   });
 
   checkout_container.appendChild(checkout_btn);
@@ -198,6 +202,7 @@ function orderDetails(products) {
   summary_container.appendChild(price_heading);
   summary_container.appendChild(sub_total);
   summary_container.appendChild(delivery_container);
+  summary_container.appendChild(divider);
   summary_container.appendChild(total_charges_container);
   summary_container.appendChild(promo_code_container);
   summary_container.appendChild(checkout_container);

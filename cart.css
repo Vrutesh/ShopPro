@@ -12,21 +12,6 @@
   --background-color: #ededed;
 }
 
-.cart-container-btns {
-  width: max-content;
-  border-radius: 25px;
-  border: 3px solid #000;
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
-  font-family: "Tektur", sans-serif;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-.cart-container-btns:active {
-  transform: scale(0.9);
-}
-
 .navbar {
   padding: 15px 0;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -466,8 +451,7 @@ footer {
     align-items: center;
     gap: 5px;
     margin-top: 90px;
-    padding: 0 15px;    
-
+    padding: 0 15px;
   }
 
   .sidebar ul li {
@@ -490,16 +474,11 @@ footer {
     padding: 0;
   }
 
-  .divider {
-    height: 0.8px;
-    background-color: rgb(163, 163, 163);
-    width: 100%;
-  }
-  .cart-heading{
+  .cart-heading {
     padding-left: 10px;
   }
 
-  .breadcrumbs{
+  .breadcrumbs {
     padding-left: 10px;
   }
 

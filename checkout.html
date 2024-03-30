@@ -1,42 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout</title>
     <link rel="stylesheet" href="checkout.css">
-    <link rel="stylesheet" href="../../utility.css">
+    <link rel="stylesheet" href="utility.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Reggae+One&display=swap&family=Tektur:wght@400..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
-    <div class="container mar">
+    <!-- navbar starts here -->
+    <header class="navbar" id="nav">
+        <div class="container">
+            <a href="index.html" class="logo">ShopPro</a>
+        </div>
+    </header>
+    <!-- navbar ends here -->
+
+
+    <!-- checkout container  -->
+    <div class="checkout-container mar" id="checkout-content">
         <header>
             <h1>Checkout</h1>
+            <div class="breadcrumbs mar">
+                <a href="index.html" class='previous-tab'>Home</a>
+                <i class="fa-solid fa-angle-right"></i>
+                <a href="cart.html" class="previous-tab">Cart</a>
+                <i class="fa-solid fa-angle-right"></i>
+                <a href="checkout.html" class="active-tab">Checkout</a>
+            </div>
         </header>
-        <main>
-            <section>
+        <main id="checkout_form">
+            <section id="shipping_details">
+                <button class="back-btn"><i class="fa-solid fa-arrow-left"></i> Shipping Details</button>
                 <form action="#" method="POST">
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="address">Shipping Address</label>
-                    <textarea id="address" name="address" required></textarea>
-                </div>
-            
-                <button type="submit">Place Order</button>
-            </form>
-        </section>
-        <section>
+                    <div class="form-group">
+                        <input type="text" id="name" class="input" name="name" required>
+                        <label class="user-label" for="first_name">First Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="name" class="input" name="name" required>
+                        <label class="user-label" for="last_name">Last Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" id="number" class="input" name="number" required>
+                        <label class="user-label" for="address">Phone Number</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" class="input" name="email" required>
+                        <label class="user-label" for="address">Email Address</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="address" class="input" name="address" required>
+                        <label class="user-label" for="address">Your Address</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="state" class="input" name="state" required>
+                        <label class="user-label" for="state">State</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="city" class="input" name="city" required></input>
+                        <label class="user-label" for="city">City</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="zipcode" class="input" name="zip-code" maxlength="6" required></input>
+                        <label class="user-label" for="Zip">Zip code</label>
+                    </div>
+                </form>
+            </section>
+            <section id="order_details">
 
-        </section>
-    </main>
+            </section>
+        </main>
     </div>
 
     <script src="checkout.js"></script>
 </body>
+
 </html>
