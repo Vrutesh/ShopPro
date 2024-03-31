@@ -248,12 +248,29 @@
   font-size: 1.4rem;
 }
 
+.promo-code-container{
+  display: flex;
+  align-items: flex-start;
+}
+
+.search-container{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.search-container p{
+  padding-left: 10px;
+  color: red;
+}
+
 .promo-code-search {
   width: 170px;
   padding: 7px 5px 5px 15px;
   margin-right: 10px;
   border-radius: 15px;
   border: 2px solid gray;
+  text-transform: uppercase;
 }
 
 .promo-btn {

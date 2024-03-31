@@ -168,19 +168,48 @@ function orderDetails(products) {
   // promo code container
   let promo_code_container = document.createElement("div");
   promo_code_container.classList.add("promo-code-container");
-  promo_code_container.classList.add("justify-content");
+
+  let search_container = document.createElement('div')
+  search_container.classList.add('search-container')
 
   let promo_searchBar = document.createElement("input");
   promo_searchBar.classList.add("promo-code-search");
   promo_searchBar.type = "search";
   promo_searchBar.placeholder = "Add promo code";
 
+  search_container.appendChild(promo_searchBar)
+
+  
+
   let promo_btn = document.createElement("button");
   promo_btn.classList.add("promo-btn");
   promo_btn.classList.add("cart-container-btns");
   promo_btn.textContent = "Apply";
+  promo_btn.addEventListener('click', () => {
+    let errormsg = promo_searchBar.parentNode.querySelector('.error-message');
+    if (!errormsg) {
+        errormsg = document.createElement('p');
+        errormsg.classList.add('error-message');
+        errormsg.style.display = 'none'; // Initially hide the error message
+        promo_searchBar.parentNode.appendChild(errormsg); // Append error message next to the promo code input field
+    }
 
-  promo_code_container.appendChild(promo_searchBar);
+    if (promo_searchBar.value !== "offer10") {
+        errormsg.textContent = 'Enter a valid Coupon'; // Display the error message
+        errormsg.style.display = 'block'; // Display the error message
+    }  else {
+        total_charges.innerHTML = `$${(totalCharges * 0.9).toFixed(2)}`;
+        errormsg.style.display = 'none'; // Hide the error message
+    }
+});
+
+
+  
+  
+
+
+
+  promo_code_container.appendChild(search_container);
   promo_code_container.appendChild(promo_btn);
 
   //checkout container

@@ -25,9 +25,16 @@ function displayProduct(product) {
     let card = document.createElement("div");
     card.classList.add("card");
 
+    let categoryContainer = document.createElement('div')
+    categoryContainer.classList.add('category-container')
+
     let prod_category = document.createElement("span");
     prod_category.classList.add("product-category");
     prod_category.innerHTML = product.category;
+
+    categoryContainer.appendChild(prod_category)
+    categoryContainer.appendChild(addtowishlist(product, product.id));
+
 
     let product_img = document.createElement("img");
     product_img.classList.add("product-img");
@@ -85,16 +92,17 @@ function displayProduct(product) {
     let addtocart = document.createElement("button");
     addtocart.classList.add("add-to-cart-btn");
     addtocart.textContent = "Add to Cart";
+  
 
     cart_btn.appendChild(addtocart);
-    cart_btn.appendChild(addtowishlist(product, product.id));
+    cart_btn.appendChild(quantityAvail())
 
     product_details.appendChild(product_title);
     product_details.appendChild(product_rating);
     product_details.appendChild(product_price);
     product_details.appendChild(cart_btn);
 
-    card.appendChild(prod_category);
+    card.appendChild(categoryContainer);
     card.appendChild(product_img);
     card.appendChild(product_details);
 
@@ -183,6 +191,48 @@ function addtoCart(addtocart_btn, id, product) {
     );
   });
 }
+
+function quantityAvail() {
+  let quantityAvail = 1
+  let quantity = document.createElement('div');
+  quantity.classList.add('quantity-container');
+
+  let decrement = document.createElement('button');
+  decrement.classList.add('decrement-btn');
+  decrement.innerHTML = `<i class="fa-solid fa-minus"></i>`;
+
+  let quantity_count = document.createElement('h4');
+  quantity_count.classList.add('quantity-count');
+  quantity_count.innerHTML = `${quantityAvail}`;
+
+  let increment = document.createElement('button');
+  increment.classList.add('increment-btn');
+  increment.innerHTML = `<i class="fa-solid fa-plus"></i>`;
+
+  quantity.appendChild(decrement);
+  quantity.appendChild(quantity_count);
+  quantity.appendChild(increment);
+
+  increment.addEventListener('click', () => {
+    let currentQuantity = parseInt(quantity_count.innerHTML);
+    quantity_count.innerHTML = `${currentQuantity + 1}`;
+   });
+
+decrement.addEventListener('click', () => {
+  let currentQuantity = parseInt(quantity_count.innerHTML);
+  if (currentQuantity > 1) {
+      quantity_count.innerHTML = `${currentQuantity - 1}`;
+  }
+  else if (currentQuantity ===  1) {
+      quantity_count.innerHTML = `${currentQuantity - 0}`;
+  }
+});
+
+  return quantity; 
+}
+
+
+
 
 function updateCart() {
   let cart = document.querySelector(".cart");
