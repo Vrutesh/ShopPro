@@ -75,7 +75,6 @@ function displayProduct(parsedItem) {
 }
 
 //order details
-
 function orderDetails(products) {
   let total = 0;
 
@@ -169,45 +168,37 @@ function orderDetails(products) {
   let promo_code_container = document.createElement("div");
   promo_code_container.classList.add("promo-code-container");
 
-  let search_container = document.createElement('div')
-  search_container.classList.add('search-container')
+  let search_container = document.createElement("div");
+  search_container.classList.add("search-container");
 
   let promo_searchBar = document.createElement("input");
   promo_searchBar.classList.add("promo-code-search");
   promo_searchBar.type = "search";
   promo_searchBar.placeholder = "Add promo code";
 
-  search_container.appendChild(promo_searchBar)
-
-  
+  search_container.appendChild(promo_searchBar);
 
   let promo_btn = document.createElement("button");
   promo_btn.classList.add("promo-btn");
   promo_btn.classList.add("cart-container-btns");
   promo_btn.textContent = "Apply";
-  promo_btn.addEventListener('click', () => {
-    let errormsg = promo_searchBar.parentNode.querySelector('.error-message');
+  promo_btn.addEventListener("click", () => {
+    let errormsg = promo_searchBar.parentNode.querySelector(".error-message");
     if (!errormsg) {
-        errormsg = document.createElement('p');
-        errormsg.classList.add('error-message');
-        errormsg.style.display = 'none'; // Initially hide the error message
-        promo_searchBar.parentNode.appendChild(errormsg); // Append error message next to the promo code input field
+      errormsg = document.createElement("p");
+      errormsg.classList.add("error-message");
+      errormsg.style.display = "none";
+      promo_searchBar.parentNode.appendChild(errormsg);
     }
 
     if (promo_searchBar.value !== "OFFER10") {
-        errormsg.textContent = 'Enter a valid Coupon'; // Display the error message
-        errormsg.style.display = 'block'; // Display the error message
-    }  else {
-        total_charges.innerHTML = `$${(totalCharges * 0.9).toFixed(2)}`;
-        errormsg.style.display = 'none'; // Hide the error message
+      errormsg.textContent = "Enter a valid Coupon";
+      errormsg.style.display = "block";
+    } else {
+      total_charges.innerHTML = `$${(totalCharges * 0.9).toFixed(2)}`;
+      errormsg.style.display = "none";
     }
-});
-
-
-  
-  
-
-
+  });
 
   promo_code_container.appendChild(search_container);
   promo_code_container.appendChild(promo_btn);
@@ -226,7 +217,6 @@ function orderDetails(products) {
   });
 
   checkout_container.appendChild(checkout_btn);
-
   // append in Summary Container
   summary_container.appendChild(price_heading);
   summary_container.appendChild(sub_total);
@@ -239,10 +229,10 @@ function orderDetails(products) {
   // append in main container
   container.appendChild(summary_container);
 }
-
 // Call getProduct to get the products from localStorage
 let product_details = getProduct();
 orderDetails(product_details);
+
 
 function updateCart() {
   let cart = document.querySelector(".cart");
@@ -257,17 +247,23 @@ function updateCart() {
 }
 
 function removeProduct(product) {
-  let removeItemBtns = document.querySelectorAll(".remove-item-btn");
-  let product_cards = document.querySelectorAll(".product-card-container");
+  let removeItemBtn = document.querySelectorAll(".remove-item-btn");
+  let product_card = document.querySelectorAll(".product-card-container");
 
-  removeItemBtns.forEach((removeItemBtn, index) => {
-    removeItemBtn.addEventListener("click", () => {
+  removeItemBtn.forEach((removeItemBtns,index)=>{
+    removeItemBtns.addEventListener("click", () => {
+      console.log("Removing product with id:", product.id);
       localStorage.removeItem("product_" + product.id);
-      product_cards[index].style.display = "none";
-      // updateCart()
+      product_card[index].style.display = "none";
     });
-  });
+  })
 }
+
+// Call removeProduct only once with the desired product
+// removeProduct()
+
+
+
 
 function showWishlistCount() {
   let addwishlist = document.querySelector(".addwishlist");
@@ -280,7 +276,6 @@ function showWishlistCount() {
   }
   addwishlist.innerHTML = `<i class="fa-solid fa-heart"></i> ${itemCount}`;
 }
-
 showWishlistCount();
 
 //sidebar
@@ -312,11 +307,10 @@ function appBar() {
 
 appBar();
 
+
 // gototop Button
 window.addEventListener("scroll", function () {
-  // Get the "Go to Top" button element
   const gototopBtn = document.getElementById("gototopBtn");
-
   // If the user scrolled more than 20 pixels down, show the button; otherwise, hide it
   if (window.scrollY > 20) {
     gototopBtn.style.display = "flex";
