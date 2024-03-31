@@ -194,7 +194,7 @@ function orderDetails(products) {
         promo_searchBar.parentNode.appendChild(errormsg); // Append error message next to the promo code input field
     }
 
-    if (promo_searchBar.value !== "offer10") {
+    if (promo_searchBar.value !== "OFFER10") {
         errormsg.textContent = 'Enter a valid Coupon'; // Display the error message
         errormsg.style.display = 'block'; // Display the error message
     }  else {
