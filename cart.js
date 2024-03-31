@@ -259,10 +259,6 @@ function removeProduct(product) {
   })
 }
 
-// Call removeProduct only once with the desired product
-// removeProduct()
-
-
 
 
 function showWishlistCount() {
