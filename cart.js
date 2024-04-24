@@ -22,7 +22,7 @@ let products = getProduct();
 
 products.forEach((parsedItem) => {
   displayProduct(parsedItem);
-  removeProduct(parsedItem);
+  // removeProduct(parsedItem)
 });
 
 function displayProduct(parsedItem) {
@@ -60,6 +60,7 @@ function displayProduct(parsedItem) {
   remove_btn.classList.add("remove-item-btn");
   remove_btn.classList.add("cart-container-btns");
   remove_btn.innerHTML = `<i class="fa-solid fa-trash"></i> Remove Item`;
+  remove_btn.setAttribute("data-product-id", parsedItem.id);
 
   product_info.appendChild(product_title);
   product_info.appendChild(product_price);
@@ -76,13 +77,12 @@ function displayProduct(parsedItem) {
 
 //order details
 function orderDetails(products) {
-  let total = 0;
-
-  products.forEach((parsedItem) => {
-    total += parsedItem.price;
-  });
-
   let container = document.querySelector(".order-details");
+
+  // Clear previous order details
+  container.innerHTML = "";
+
+  let total = products.reduce((acc, product) => acc + product.price, 0);
 
   let summary_container = document.createElement("div");
   summary_container.classList.add("summary-container");
@@ -229,10 +229,7 @@ function orderDetails(products) {
   // append in main container
   container.appendChild(summary_container);
 }
-// Call getProduct to get the products from localStorage
-let product_details = getProduct();
-orderDetails(product_details);
-
+orderDetails(getProduct());
 
 function updateCart() {
   let cart = document.querySelector(".cart");
@@ -246,19 +243,28 @@ function updateCart() {
   cart.innerHTML = `<img src="assets/icons/cart.svg" alt="cart"> ${itemCount}`;
 }
 
-function removeProduct(product) {
-  let removeItemBtn = document.querySelectorAll(".remove-item-btn");
-  let product_card = document.querySelectorAll(".product-card-container");
 
-  removeItemBtn.forEach((removeItemBtns,index)=>{
-    removeItemBtns.addEventListener("click", () => {
-      console.log("Removing product with id:", product.id);
-      localStorage.removeItem("product_" + product.id);
-      product_card[index].style.display = "none";
+// remove product from cart
+function setupRemoveProductButtons() {
+  let removeItemButtons = document.querySelectorAll(".remove-item-btn");
+  let productCards = document.querySelectorAll(".product-card-container");
+
+  removeItemButtons.forEach((button, index) => {
+    button.addEventListener("click", function () {
+      // Retrieve the product ID stored in a data attribute on the button
+      const productId = this.getAttribute("data-product-id");
+      localStorage.removeItem("product_" + productId);
+      console.log("Removing product with id:", productId);
+      // Hide the corresponding product card
+      if (productCards[index]) {
+        productCards[index].style.display = "none";
+      }
+      updateCart();
+      orderDetails(getProduct());
     });
-  })
+  });
 }
-
+setupRemoveProductButtons();
 
 
 function showWishlistCount() {
@@ -273,6 +279,7 @@ function showWishlistCount() {
   addwishlist.innerHTML = `<i class="fa-solid fa-heart"></i> ${itemCount}`;
 }
 showWishlistCount();
+
 
 //sidebar
 function appBar() {
@@ -300,9 +307,7 @@ function appBar() {
     sidebar.classList.remove("open");
   });
 }
-
 appBar();
-
 
 // gototop Button
 window.addEventListener("scroll", function () {

@@ -417,21 +417,10 @@
   transition: 0.5s;
 }
 
-.decrement-btn:hover{
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
-}
-
-
-.decrement-btn:active{
-  transform: scale(0.8);
-}
-
-
 .quantity-count{
   padding: 5px 14px;
-  /* border-left: 2px solid black; */
 }
+
 .increment-btn{
   background-color: transparent;
   padding: 8px 8px;
@@ -440,13 +429,6 @@
   border-top: none;
   border-left: 1px solid black;
   transition: 0.5s;
-}
-.increment-btn:hover{
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
-}
-.increment-btn:active{
-  transform: scale(0.8);
 }
 
 .wishlistbtn {
