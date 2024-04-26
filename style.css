@@ -524,6 +524,7 @@ footer {
 
 .payment-methods img {
   width: 60px;
+  height: auto;
 }
 
 /* media query for max-width 480px  */

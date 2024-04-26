@@ -199,6 +199,7 @@ function quantityAvail() {
 
   let decrement = document.createElement('button');
   decrement.classList.add('decrement-btn');
+  decrement.type('button')
   decrement.innerHTML = `<i class="fa-solid fa-minus"></i>`;
 
   let quantity_count = document.createElement('h4');
@@ -207,6 +208,7 @@ function quantityAvail() {
 
   let increment = document.createElement('button');
   increment.classList.add('increment-btn');
+  increment.type('button')
   increment.innerHTML = `<i class="fa-solid fa-plus"></i>`;
 
   quantity.appendChild(decrement);

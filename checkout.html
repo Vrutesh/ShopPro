@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore ShopPro, an advanced eCommerce platform designed to revolutionize online shopping. Experience seamless shopping with dynamic cart updates, a personalized wishlist, and detailed product insights. Enjoy intuitive navigation, real-time interactions, and exclusive discounts with our integrated coupon system. Shop smarter with ShopPro today!">
     <title>Checkout</title>
     <link rel="stylesheet" href="checkout.css">
     <link rel="stylesheet" href="utility.css">
@@ -39,38 +40,38 @@
         </header>
         <main id="checkout_form">
             <section id="shipping_details">
-                <button class="back-btn"><i class="fa-solid fa-arrow-left"></i> Shipping Details</button>
+                <button type="button" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Shipping Details</button>
                 <form action="#" method="POST">
                     <div class="form-group">
-                        <input type="text" id="name" class="input" name="name" required>
+                        <input aria-invalid="true" type="text" id="name" class="input" name="name" required>
                         <label class="user-label" for="first_name">First Name</label>
                     </div>
                     <div class="form-group">
-                        <input type="text" id="name" class="input" name="name" required>
+                        <input aria-invalid="true" type="text" id="last_name" class="input" name="last_name" required>
                         <label class="user-label" for="last_name">Last Name</label>
                     </div>
                     <div class="form-group">
-                        <input type="number" id="number" class="input" name="number" required>
+                        <input aria-invalid="true" type="number" id="number" class="input" name="number" required>
                         <label class="user-label" for="address">Phone Number</label>
                     </div>
                     <div class="form-group">
-                        <input type="email" id="email" class="input" name="email" required>
+                        <input aria-invalid="true" type="email" id="email" class="input" name="email" required>
                         <label class="user-label" for="address">Email Address</label>
                     </div>
                     <div class="form-group">
-                        <input type="text" id="address" class="input" name="address" required>
+                        <input aria-invalid="true" type="text" id="address" class="input" name="address" required>
                         <label class="user-label" for="address">Your Address</label>
                     </div>
                     <div class="form-group">
-                        <input type="text" id="state" class="input" name="state" required>
+                        <input aria-invalid="true" type="text" id="state" class="input" name="state" required>
                         <label class="user-label" for="state">State</label>
                     </div>
                     <div class="form-group">
-                        <input type="text" id="city" class="input" name="city" required></input>
+                        <input aria-invalid="true" type="text" id="city" class="input" name="city" required></input>
                         <label class="user-label" for="city">City</label>
                     </div>
                     <div class="form-group">
-                        <input type="text" id="zipcode" class="input" name="zip-code" maxlength="6" required></input>
+                        <input aria-invalid="true" type="text" id="zipcode" class="input" name="zip-code" maxlength="6" required></input>
                         <label class="user-label" for="Zip">Zip code</label>
                     </div>
                 </form>
