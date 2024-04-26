@@ -62,7 +62,6 @@ function displayProduct(product) {
   cart_btn_container.classList.add("justify-content");
 
   // addtocart button
-
   let addtocart = document.createElement("button");
   addtocart.classList.add("add-to-cart-btn");
   addtocart.textContent = "Add to Cart";

@@ -102,7 +102,13 @@ function orderDetails(products) {
 
   let total_charges = document.createElement("h3");
   total_charges.classList.add("total");
-  total_charges.innerHTML = `$${totalCharges.toFixed(2)}`;
+  let totalAmount = localStorage.getItem("totalamount");
+  totalAmount = parseFloat(totalAmount);
+  if (!isNaN(totalAmount)) {
+    total_charges.innerHTML = `$${totalAmount.toFixed(2)}`;
+  } else {
+    total_charges.innerHTML = "Invalid amount";
+  }
 
   total_charges_container.appendChild(total_charges_heading);
   total_charges_container.appendChild(total_charges);

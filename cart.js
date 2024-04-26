@@ -160,6 +160,9 @@ function orderDetails(products) {
   let total_charges = document.createElement("h3");
   total_charges.classList.add("total");
   total_charges.innerHTML = `$${totalCharges.toFixed(2)}`;
+  localStorage.setItem("totalamount", totalCharges);
+  let totalamount = parseFloat(localStorage.getItem("totalamount"));
+  let discountedAmount = null;
 
   total_charges_container.appendChild(total_charges_heading);
   total_charges_container.appendChild(total_charges);
@@ -195,7 +198,10 @@ function orderDetails(products) {
       errormsg.textContent = "Enter a valid Coupon";
       errormsg.style.display = "block";
     } else {
-      total_charges.innerHTML = `$${(totalCharges * 0.9).toFixed(2)}`;
+      total_charges.innerHTML = `$${(discountedAmount = (
+        totalamount * 0.9
+      ).toFixed(2))}`;
+      localStorage.setItem("totalamount", discountedAmount);
       errormsg.style.display = "none";
     }
   });
@@ -243,7 +249,6 @@ function updateCart() {
   cart.innerHTML = `<img src="assets/icons/cart.svg" alt="cart"> ${itemCount}`;
 }
 
-
 // remove product from cart
 function setupRemoveProductButtons() {
   let removeItemButtons = document.querySelectorAll(".remove-item-btn");
@@ -266,7 +271,6 @@ function setupRemoveProductButtons() {
 }
 setupRemoveProductButtons();
 
-
 function showWishlistCount() {
   let addwishlist = document.querySelector(".addwishlist");
   let itemCount = "";
@@ -279,7 +283,6 @@ function showWishlistCount() {
   addwishlist.innerHTML = `<i class="fa-solid fa-heart"></i> ${itemCount}`;
 }
 showWishlistCount();
-
 
 //sidebar
 function appBar() {
