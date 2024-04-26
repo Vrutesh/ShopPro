@@ -51,7 +51,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: 20px;
 }
 
 .nav-menu ul li {
@@ -59,7 +59,15 @@
   align-items: center;
   gap: 10px;
   cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 10px;
 }
+
+.nav-menu ul li:hover{
+  background: rgba(117, 117, 117, 0.099);
+  transition: 0.5s;
+}
+
 .search-bar {
   display: flex;
   align-items: center;

@@ -48,6 +48,27 @@ function displayProduct(product) {
   product_title.classList.add("product-title");
   product_title.innerHTML = `${product.title}`;
 
+  let product_rating = document.createElement("h3");
+  product_rating.classList.add("product-rating");
+
+  // adding stars in ratings
+
+  let fullStars = Math.floor(product.rating.rate);
+  for (let i = 0; i < fullStars; i++) {
+    product_rating.innerHTML += `<i class="fa-solid fa-star" style="color: rgb(255, 183, 0);"></i>`; // Append yellow star icons to the product_rating element
+  }
+
+  // Append partially filled star if there is any fractional part
+  let fractionalPart = product.rating.rate - fullStars;
+  if (fractionalPart > 0) {
+    product_rating.innerHTML += `<i class="fa-solid fa-star" style="color: rgb(255, 183, 0); width: ${
+      fractionalPart * 20
+    }px; overflow: hidden; margin-right:10px;"></i>`; // Append partially filled star to the product_rating element
+  }
+
+  // Append the rating value after the stars
+  product_rating.innerHTML += `${product.rating.rate}/${product.rating.count}`;
+
   let product_price = document.createElement("p");
   product_price.classList.add("product-price");
   product_price.innerHTML = `$${product.price}`;
@@ -75,6 +96,7 @@ function displayProduct(product) {
 
   product_price.appendChild(exp_price);
   product_info.appendChild(product_title);
+  product_info.appendChild(product_rating)
   product_info.appendChild(product_price);
   product_info.appendChild(cart_btn_container);
 
@@ -84,6 +106,8 @@ function displayProduct(product) {
   product_card_container.appendChild(product_info);
 
   container.appendChild(product_card_container);
+  addtoCart(addtocart, product.id, product);
+
 }
 
 function showWishlist() {
@@ -126,6 +150,44 @@ function removeWishlist(product) {
   });
 }
 
+// Add to cart function
+function addtoCart(addtocart_btn, id, product) {
+  addtocart_btn.addEventListener("click", () => {
+    let localStorageId = localStorage.getItem("product_" + id);
+    // Check if the product is already in the cart
+    if (localStorageId) {
+      updateCart(
+        showToast(
+          '<i class="fa-regular fa-circle-check" style="color:springgreen;"></i>',
+          "Product is already in the cart"
+        )
+      );
+      return; // Exit the function, no need to proceed further
+    }
+    // If not in the cart, add the product to the cart
+    localStorage.setItem("product_" + id, JSON.stringify(product));
+    updateCart(
+      showToast(
+        '<i class="fa-regular fa-circle-check" style="color:springgreen;"></i>',
+        "Product has been added to the cart"
+      )
+    );
+  });
+}
+
+function updateCart() {
+  let cart = document.querySelector(".cart");
+  let itemCount = "";
+  for (let i = 0; i < localStorage.length; i++) {
+    let key = localStorage.key(i);
+    if (key.startsWith("product_")) {
+      itemCount++;
+    }
+  }
+  cart.innerHTML = `<img src="assets/icons/cart.svg" alt="cart"> ${itemCount}`;
+}
+updateCart();
+
 
 //toast message
 function showToast(msgicon, message) {
@@ -155,7 +217,6 @@ function showCart(){
   cart.innerHTML = `<img src="assets/icons/cart.svg" alt="cart"> ${itemCount}`;
 
 }
-
 showCart()
 
 //sidebar
