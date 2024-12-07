@@ -199,7 +199,7 @@ function quantityAvail() {
 
   let decrement = document.createElement('button');
   decrement.classList.add('decrement-btn');
-  decrement.type('button')
+  // decrement.type('button')
   decrement.innerHTML = `<i class="fa-solid fa-minus"></i>`;
 
   let quantity_count = document.createElement('h4');
@@ -208,7 +208,7 @@ function quantityAvail() {
 
   let increment = document.createElement('button');
   increment.classList.add('increment-btn');
-  increment.type('button')
+  // increment.type('button')
   increment.innerHTML = `<i class="fa-solid fa-plus"></i>`;
 
   quantity.appendChild(decrement);
@@ -307,3 +307,23 @@ window.addEventListener("scroll", function () {
     gototopBtn.style.display = "none";
   }
 });
+
+// offer code 
+
+const offer_code = document.querySelector(".code")
+const offer_summary = document.querySelector(".code-summary")
+const date = new Date
+const todaysdate = date.getDate()
+
+const getOfferCode  = () =>{
+  if(todaysdate >= 1 && todaysdate <= 15){
+    offer_summary.textContent = "Get FLAT 10% OFF on all orders"
+    offer_code.textContent = "Use Code : OFFER10"
+  }
+  else if(todaysdate >=16){
+    offer_summary.textContent = "Get FLAT 50% OFF on all orders"
+    offer_code.textContent = "Use Code : B1G1"
+  }
+}
+
+getOfferCode()

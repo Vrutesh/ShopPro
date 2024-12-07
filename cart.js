@@ -194,16 +194,23 @@ function orderDetails(products) {
       promo_searchBar.parentNode.appendChild(errormsg);
     }
 
-    if (promo_searchBar.value !== "OFFER10") {
-      errormsg.textContent = "Enter a valid Coupon";
-      errormsg.style.display = "block";
-    } else {
-      total_charges.innerHTML = `$${(discountedAmount = (
-        totalamount * 0.9
-      ).toFixed(2))}`;
+    if (promo_searchBar.value === "OFFER10") {
+      // Apply 10% discount for OFFER10
+      discountedAmount = (totalamount * 0.9).toFixed(2);
+      total_charges.innerHTML = `$${discountedAmount}`;
       localStorage.setItem("totalamount", discountedAmount);
       errormsg.style.display = "none";
-    }
+  } else if (promo_searchBar.value === "B1G1") {
+      // Apply 50% discount for B1G1
+      discountedAmount = (totalamount * 0.5).toFixed(2);
+      total_charges.innerHTML = `$${discountedAmount}`;
+      localStorage.setItem("totalamount", discountedAmount);
+      errormsg.style.display = "none";
+  } else {
+      // Show error message for invalid coupon
+      errormsg.textContent = "Enter a valid Coupon";
+      errormsg.style.display = "block";
+  }
   });
 
   promo_code_container.appendChild(search_container);
