@@ -35,7 +35,6 @@ function displayProduct(product) {
     categoryContainer.appendChild(prod_category)
     categoryContainer.appendChild(addtowishlist(product, product.id));
 
-
     let product_img = document.createElement("img");
     product_img.classList.add("product-img");
     product_img.alt = "product";
