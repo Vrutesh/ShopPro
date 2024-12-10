@@ -141,7 +141,7 @@ orderDetails(product_details);
 
 let backBtn = document.querySelector(".back-btn");
 backBtn.addEventListener("click", () => {
-  window.location.href = "cart.html";
+  window.location.href = "components\pages\cart.html";
 });
 
 function formValidation() {
